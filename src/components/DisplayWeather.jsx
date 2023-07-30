@@ -94,16 +94,16 @@ const DisplayWeather = ({ coordinates }) => {
       {/* DAILY WEATHER */}
       <div className="text-lg">
         {/* DAILY WEATHER ROWS */}
-        {daily.time.map((date) => (
+        {daily.time.map((date,index) => (
           <div
             key={date}
             className={`${
-              daily.time.indexOf(date) % 2 === 0 ? "bg-blue-200" : "bg-blue-300"
+              index % 2 === 0 ? "bg-blue-200" : "bg-blue-300"
             } flex justify-around items-center px-10 py-4`}
           >
             {/* DAILY DATE */}
             <p>
-              {daily.time[daily.time.indexOf(date)]
+              {daily.time[index]
                 .split("-")
                 .reverse()
                 .join("-")}
@@ -113,7 +113,7 @@ const DisplayWeather = ({ coordinates }) => {
             <img
               className="h-[50px]"
               src={`../public/icons/${ICON_MAP.get(
-                daily.weathercode[daily.time.indexOf(date)]
+                daily.weathercode[index]
               )}.svg`}
               alt=""
             />
@@ -123,25 +123,25 @@ const DisplayWeather = ({ coordinates }) => {
             {/* DAILY MIN TEMP */}
             <div className="flex flex-col text-center">
               <span>MIN TEMP</span>
-              {daily.temperature_2m_min[daily.time.indexOf(date)]}&deg;
+              {daily.temperature_2m_min[index]}&deg;
             </div>
 
             {/* DAILY MAX TEMP */}
             <div className="flex flex-col text-center">
               <span>MAX TEMP</span>
-              {daily.temperature_2m_max[daily.time.indexOf(date)]}&deg;
+              {daily.temperature_2m_max[index]}&deg;
             </div>
 
             {/* DAILY WIND */}
             <div className="flex flex-col text-center">
               <span>WIND</span>
-              {daily.windspeed_10m_max[daily.time.indexOf(date)]} km/h
+              {daily.windspeed_10m_max[index]} km/h
             </div>
 
             {/* DAILY PRECIP */}
             <div className="flex flex-col text-center">
               <span>PRECIP</span>
-              {daily.precipitation_probability_max[daily.time.indexOf(date)]}%
+              {daily.precipitation_probability_max[index]}%
             </div>
           </div>
         ))}
