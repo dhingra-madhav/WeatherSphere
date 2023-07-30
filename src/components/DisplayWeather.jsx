@@ -53,7 +53,7 @@ const DisplayWeather = ({ coordinates }) => {
         {/* CURRENT WEATHER ICON */}
         <img
           className="h-[150px]"
-          src={`../public/icons/${ICON_MAP.get(current.weathercode)}.svg`}
+          src={`/icons/${ICON_MAP.get(current.weathercode)}.svg`}
           alt=""
         />
 
@@ -66,7 +66,7 @@ const DisplayWeather = ({ coordinates }) => {
           <div className="cards gap-3 py-3.5 px-6">
             <img
               className="h-[50px]"
-              src={`../public/icons/${current.is_day ? "sun" : "moon"}.svg`}
+              src={`/icons/${current.is_day ? "sun" : "moon"}.svg`}
               alt=""
             />
             <p>{current.is_day ? "DAY" : "NIGHT"}</p>
@@ -112,7 +112,7 @@ const DisplayWeather = ({ coordinates }) => {
             {/* DAILY WEATHER ICON */}
             <img
               className="h-[50px]"
-              src={`../public/icons/${ICON_MAP.get(
+              src={`/icons/${ICON_MAP.get(
                 daily.weathercode[index]
               )}.svg`}
               alt=""
